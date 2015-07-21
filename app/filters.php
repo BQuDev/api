@@ -51,7 +51,14 @@ Route::filter('auth', function()
 
 Route::filter('auth.basic', function()
 {
-	return Auth::basic();
+	//return Auth::basic();
+
+    if(Input::get('fb')){
+        return Auth::basic("facebook_id");
+    }else{
+        return Auth::basic("username");
+    }
+    //return (Auth::basic("username")||Auth::basic("facebook_id"));
 });
 
 /*

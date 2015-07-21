@@ -11,7 +11,20 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+
+
+Route::get('api/v1/logout', function() {
+    Auth::logout();
 });
+
+
+
+Route::group(array('prefix' => 'api/v1', 'before' => 'auth.basic'), function()
+{
+    Route::get('/', 'UsersController@index');
+    Route::resource('categories', 'CategoriesController');
+    Route::resource('sub-categories', 'SubCategoriesController');
+    Route::resource('events', 'EventsController');
+    Route::resource('users', 'UsersController');
+});
+

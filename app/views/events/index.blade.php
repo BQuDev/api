@@ -1,0 +1,1 @@
+C:\wamp\www\api\app/views/events/index.blade.php

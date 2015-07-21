@@ -1,0 +1,1 @@
+C:\wamp\www\api\app/views/categories/show.blade.php
